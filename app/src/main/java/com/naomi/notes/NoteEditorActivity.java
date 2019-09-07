@@ -30,6 +30,7 @@ public class NoteEditorActivity extends AppCompatActivity {
 
             MainActivity.notes.add("");
             noteId = MainActivity.notes.size() -1;
+            MainActivity.arrayAdapter.notifyDataSetChanged();
 
         }
 
