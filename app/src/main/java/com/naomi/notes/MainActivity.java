@@ -73,7 +73,9 @@ public class MainActivity extends AppCompatActivity {
 
         listView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
             @Override
-            public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
+            public boolean onItemLongClick(AdapterView<?> parent, View view, int i, long l) {
+
+                final int itemToDelete = i;
 
                 new AlertDialog.Builder(MainActivity.this)
                         .setIcon(android.R.drawable.ic_dialog_alert)
@@ -83,7 +85,7 @@ public class MainActivity extends AppCompatActivity {
                             @Override
                             public void onClick(DialogInterface dialog, int i) {
 
-                                notes.remove(i);
+                                notes.remove(itemToDelete);
                                 arrayAdapter.notifyDataSetChanged();
 
                             }
