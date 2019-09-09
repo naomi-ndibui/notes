@@ -56,8 +56,18 @@ public class MainActivity extends AppCompatActivity {
 
         ListView listView = (ListView) findViewById(R.id.listView);
 
-        notes.add("Take note");
+        SharedPreferences sharedPreferences = getApplicationContext().getSharedPreferences("com.naomi.notes", Context.MODE_PRIVATE);
 
+        HashSet<String> set = (HashSet<String>) sharedPreferences.getStringSet("notes", null);
+
+        if (set == null) {
+
+            notes.add("Take note");
+        } else{
+
+            notes = new ArrayList(set);
+
+        }
         arrayAdapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, notes);
 
         listView.setAdapter(arrayAdapter);
